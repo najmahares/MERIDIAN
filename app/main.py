@@ -17,7 +17,6 @@ from app.routers import (
 )
 
 app = FastAPI(
-    root_path="/api",
     title="Hospital Pharmacy POS System",
     description="Point of Sale System for Hospital and Pharmacy Management",
     version="1.0.0",
