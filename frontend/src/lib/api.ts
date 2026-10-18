@@ -1,6 +1,6 @@
 import { getToken, clearAuth } from "./auth";
 
-const BASE = "/api";
+const BASE = typeof window !== "undefined" && window.location.hostname === "localhost" ? "http://localhost:8000" : "/api";
 
 export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   const token = getToken();

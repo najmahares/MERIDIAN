@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Plus, X } from "lucide-react";
+import { Search, Plus, X, Eye, EyeOff } from "lucide-react";
 import { api } from "@/lib/api";
 import type { UserRow } from "@/lib/types";
 
@@ -11,6 +11,7 @@ export default function UsersPage() {
   const [showCreate, setShowCreate] = useState(false);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   
   const [form, setForm] = useState({
     username: "", email: "", password: "", first_name: "", last_name: "", role: "cashier"
@@ -138,7 +139,12 @@ export default function UsersPage() {
                   </div>
                   <div>
                     <label className="text-xs text-[var(--text-muted)] block mb-2">Password</label>
-                    <input required type="password" minLength={8} value={form.password} onChange={(e) => setForm({...form, password: e.target.value})} className="w-full bg-[var(--bg)] text-white border-b border-[var(--border)] py-2 text-sm focus:outline-none focus:border-[var(--brand)] transition-colors" />
+                    <div className="relative">
+                      <input required type={showPassword ? "text" : "password"} minLength={8} value={form.password} onChange={(e) => setForm({...form, password: e.target.value})} className="w-full bg-[var(--bg)] text-white border-b border-[var(--border)] py-2 pr-10 text-sm focus:outline-none focus:border-[var(--brand)] transition-colors" />
+                      <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-0 top-1/2 -translate-y-1/2 text-[var(--text-dim)] hover:text-white transition-colors">
+                        {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                    </div>
                   </div>
                   <div>
                     <label className="text-xs text-[var(--text-muted)] block mb-2">Role</label>
