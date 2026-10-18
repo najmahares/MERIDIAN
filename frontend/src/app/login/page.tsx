@@ -53,6 +53,23 @@ export default function LoginPage() {
             transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             className="absolute -bottom-[20%] -right-[10%] w-[100%] h-[120%] bg-gradient-to-tl from-[var(--cyan)] to-transparent blur-[100px] rounded-[100%]" 
           />
+
+          <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <motion.path 
+              animate={{ d: ["M0,50 Q25,30 50,50 T100,50", "M0,50 Q25,70 50,50 T100,50", "M0,50 Q25,30 50,50 T100,50"] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              fill="none" 
+              stroke="var(--brand-bright)" 
+              strokeWidth="0.5" 
+            />
+            <motion.path 
+              animate={{ d: ["M0,60 Q25,40 50,60 T100,60", "M0,60 Q25,80 50,60 T100,60", "M0,60 Q25,40 50,60 T100,60"] }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              fill="none" 
+              stroke="var(--cyan)" 
+              strokeWidth="0.3" 
+            />
+          </svg>
         </div>
 
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, ease: "easeOut" }} className="relative z-10 flex flex-col items-center gap-6">
