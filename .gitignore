@@ -1,43 +1,39 @@
+# Environments
+.env
+.env.*
+!.env.example
+.venv
+venv/
+env/
+
 # Python
 __pycache__/
 *.py[cod]
-*.egg-info/
+*$py.class
 .pytest_cache/
-.mypy_cache/
-.ruff_cache/
-
-# Virtual environments
-env/
-venv/
-.venv/
+.coverage
+pylint_report.*
 
 # Databases
 *.db
-*.sqlite
 *.sqlite3
 
-# Environment
-.env
-.env.local
-
-# Generated reports
-pylint_report.*
-pytest_report.*
-htmlcov/
-.coverage
-coverage.xml
-.git_backup_*/
-.fix*_backup_*/
-.fix*_*/
-.warn_bak_*/
-
-# OS / IDE
-.DS_Store
-.idea/
-.vscode/
+# Local History / Editor
+.history/
 .fix*
+*.bak*
 
-# Secrets and generated reports
-.env
-pylint_report.json
-pytest_report.json
+# Node
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel

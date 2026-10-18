@@ -38,6 +38,6 @@ class Sale(Base):
     payments = relationship(
         "Payment", back_populates="sale", cascade="all, delete-orphan"
     )
-    receipts = relationship(
-        "Receipt", back_populates="sale", cascade="all, delete-orphan"
+    receipt = relationship(
+        "Receipt", back_populates="sale", cascade="all, delete-orphan", uselist=False
     )

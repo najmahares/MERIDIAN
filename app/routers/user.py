@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.database import get_db
+from app.core.security import hash_password
 from app.dependencies import get_current_user, require_admin
 from app.models.user import User
 from app.repositories.user_repository import user_repository
@@ -75,7 +76,10 @@ def create_user(
         raise HTTPException(status_code=400, detail="Username already taken")
     if user_repository.get_by_email(db, data.email):
         raise HTTPException(status_code=400, detail="Email already registered")
-    return user_repository.create(db, data.model_dump())
+    
+    values = data.model_dump(exclude={"password"})
+    values["password_hash"] = hash_password(data.password)
+    return user_repository.create(db, values)
 
 
 @router.put("/{user_id}", response_model=UserRead)
