@@ -23,10 +23,14 @@ export function getAuth(): AuthState | null {
 }
 
 export function getToken(): string | null {
+  if (typeof window !== "undefined" && localStorage.getItem("demo_mode") === "true") return "mock_token";
   return getAuth()?.access_token ?? null;
 }
 
 export function getUser(): AuthUser | null {
+  if (typeof window !== "undefined" && localStorage.getItem("demo_mode") === "true") {
+    return { id: "u1", username: "admin", email: "admin@meridian.local", role: "admin", first_name: "System", last_name: "Admin" };
+  }
   return getAuth()?.user ?? null;
 }
 
