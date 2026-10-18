@@ -166,3 +166,4 @@ The next steps are to:
 2. Implement a printable receipt view.
 3. Integrate a barcode scanner input for faster dispensing.
 4. Add automated email delivery.
+ 
